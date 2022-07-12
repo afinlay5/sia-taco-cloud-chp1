@@ -93,7 +93,7 @@ public void addIngredientsToModel(Model model) {
       List<Ingredient> ingredients, Type type) {
     return ingredients
               .stream()
-              .filter(x -> x.getType().equals(type))
+              .filter(x -> x.type().equals(type))
               .collect(Collectors.toList());
   }
 
