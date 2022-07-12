@@ -18,10 +18,10 @@ import tacos.TacoOrder;
 @SessionAttributes("tacoOrder")
 public class OrderController {
 
-    @GetMapping("/current")
-    public String orderForm() {
-        return "orderForm";
-    }
+  @GetMapping("/current")
+  public String orderForm() {
+    return "orderForm";
+  }
 
 /*
   @PostMapping
@@ -34,16 +34,16 @@ public class OrderController {
   }
 */
 
-    @PostMapping
-    public String processOrder(@Valid TacoOrder order, Errors errors,
-                               SessionStatus sessionStatus) {
-        if (errors.hasErrors()) {
-            return "orderForm";
-        }
-
-        log.info("Order submitted: {}", order);
-        sessionStatus.setComplete();
-
-        return "redirect:/";
+  @PostMapping
+  public String processOrder(@Valid TacoOrder order, Errors errors,
+		  SessionStatus sessionStatus) {
+    if (errors.hasErrors()) {
+      return "orderForm";
     }
+
+    log.info("Order submitted: {}", order);
+    sessionStatus.setComplete();
+
+    return "redirect:/";
+  }
 }

@@ -2,8 +2,15 @@ package tacos;
 
 import lombok.Data;
 
-public record Ingredient(String id, String name, tacos.Ingredient.Type type) {
-    public enum Type {
-        WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
-    }
+@Data
+public class Ingredient {
+  
+  private final String id;
+  private final String name;
+  private final Type type;
+  
+  public enum Type {
+    WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
+  }
+
 }
